@@ -1,0 +1,46 @@
+<% include ../partials/header.ejs %>
+
+<div class = "container" style = "margin-top:20px;">
+    <header class = "jumbotron">
+        <div class = "container">
+            <i class="fas fa-tree" style = "font-size:40px;"></i><h1 style = "display:inline;">  Welcome To Yelpcamp!</h1>
+            <p>Cause even if you don't fun have with your money, We sure will! :)</p>
+            <p> <a href = "/campgrounds/new" class = "btn btn-success ">Click here to add a campground</a></p>
+            <p>
+                <form action="/campgrounds/search" method = "POST">
+                    <div class = "row">
+                    <div class="col-7">
+                    <input class="form-control form-control-sm form-control-borderless" name = "search" type="search" placeholder="Search campgrounds">
+                    </div>
+                    <div class="col-2">
+                    <button type="submit" class="btn btn-success btn-sm" >Submit</button>
+                    </div>
+                    </div>
+                </form>
+            </p>
+        </div>
+    </header>
+    <div class = "row view-group">
+        <% campgrounds.forEach(function(camp){%>
+            <div class = "item col-md-3 col-sm-6">
+                <div class="thumbnail card" style = "margin-bottom:5%; padding:0px;">
+                    <img class="card-img-top" src="<%=camp.image%>" alt="Card image cap" style = "width: 100%;">
+                    <div class="card-body" style = "padding:5px;">
+                        <h5 class="card-title"><%= camp.name %></h5>
+                        <div class="description">
+                            <p><%= camp.desc.substring(0,80); %>....</p>
+                        </div>
+                        <a href="/campgrounds/<%= camp._id %>" class="btn btn-success">Know more</a>
+                    </div> 
+                </div>
+            </div>
+        
+        <% }); %>
+    </div>
+    
+</div>
+
+ 
+ 
+<% include ../partials/footer.ejs %>
+

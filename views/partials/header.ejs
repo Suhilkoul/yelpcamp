@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type = "text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" type = "text/css" href="/stylesheets/styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link rel="shortcut icon" href="https://www.shareicon.net/download/2015/08/04/80060_tree_512x512.png" >
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top sb-navbar">
+            <a class="navbar-brand" href="/"><i class="fas fa-tree"></i> Yelpcamp</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link  active" href="/campgrounds" id="dropdownThemes"  aria-haspopup="true" aria-expanded="false">Campgrounds</a>
+                    </li>
+                    <li class="nav-item" style="position: relative;">
+                        <a class="nav-link" href="/" title="Back to home page">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownResources" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownResources">
+                            <a class="dropdown-item" href="#">
+                            <i class="fal fa-th-list fa-fw"></i>
+                            Our advisors</a>
+                            <a class="dropdown-item" href="#">
+                            <i class="fal fa-life-ring fa-fw"></i>
+                            Help &amp; FAQ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Get latest news about what is happening in the campsites all around the globe!">Articles</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ">
+                    <% if(!currentUser){ %>
+                        <div class="btn-group" role="group">
+                                <a href = "/user/login" class="btn btn-outline-success my-2 my-sm-0"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                                <a href = "/user/new" class="btn btn-outline-success my-2 my-sm-0"><i class="fas fa-user-plus"></i> Sign up</a>
+                        </div>
+                    <% }else{ %>
+                        <a href = "#" style = "color:rgba(255,255,255,.5); margin: auto 10px;">Hey, <%= currentUser.username %></a>
+                        <a href = "/logout" class="btn btn-outline-success my-2 my-sm-0"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                    <% } %>
+                </ul>
+            </div>
+            
+        </nav>
+        
+        
+    
