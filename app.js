@@ -16,13 +16,13 @@ var campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
 mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb://suhilkoul:sudanti123@ds117545.mlab.com:17545/yelpcamp");
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
-// seedDB();
+
 
 //Passport config
 app.use(require("express-session")({
@@ -46,6 +46,7 @@ app.use(campgroundRoutes);
 app.use(commentRoutes);
 app.use(indexRoutes);
 
-app.listen(process.env.PORT , process.env.IP , function(){
+/*app.listen(process.env.PORT , process.env.IP , function(){
     console.log("The server has started");
-});
+});*/
+app.listen("3000", "127.0.0.1");
